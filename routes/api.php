@@ -19,9 +19,11 @@ use App\Http\Resources\SessionResource;
 //     return $request->user();
 // });
 
-Route::get('/session', function () {
-    return new SessionResource(Session::find(1));
-});
+// Route::get('/session', function () {
+//     return new SessionResource(Session::find(1));
+// });
+
+Route::resource('session', 'SessionController');
 
 // Route::post('session', function(Request $request) {
 //     return Session::create($request->all);

@@ -18,6 +18,7 @@ class SessionResource extends JsonResource
     {
         
             return [
+                'type' => 'sessions',
                 'id' => $this->id,            
                 'date' => $this->date,
                 'gym_name' => $this->gym_name,

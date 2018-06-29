@@ -25,9 +25,15 @@ class SessionController extends Controller
 	    $session->save();
 	}
 
-	public function showSession(){
+	public function index(Session $session){
 
-		return Session::all($user_id);
+		// return $session->toArray();
+
+		SessionResource::withoutWrapping();
+
+		return new SessionResource($session);
+
+		// return Session::all($user_id);
 	}
 
 	public function delete(Request $request, $id)
