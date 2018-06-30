@@ -10,41 +10,39 @@ class SessionController extends Controller
 {
     //
 
-
     public function addSession(Request $request)
-	{	
-		
-	    $session = new Session();
-	    
-	    $session->user_id=request('user_id');
-	    $session->date=request('date');
-	    $session->gym=request('gym');
-	    $session->trainer=request('trainer');
-	    $session->reps=request('reps');
-	    $session->sets=request('sets');
-	    $session->save();
-	}
+    {
+        
+        $date = $request['date'];
+        $gym_id = $request['gym_id'];
+        $exercise_type = $request['exercise_type'];
+        $reps = $request['reps_no'];
+        $sets = $request['sets_no'];
+        $user_id = $request['user_id'];
+        $trainer_id = $request['trainer_id'];
 
-	public function index(Session $session){
 
-		// 
+        $session = new Session;
 
-		$session=Session::all();
+        $session->date = $date;
+        $session->gym_id = $gym_id;
+        $session->exercise_type = $exercise_type;
+        $session->reps_no = $reps;
+        $session->sets_no = $sets;
+        $session->user_id = $user_id;
+        $session->trainer= $trainer_id;
 
-		// SessionResource::withoutWrapping();
-		return $session->toArray();
-		
-		// return new SessionResource($session);
+        $session->save();
 
-		// return Session::all($user_id);
+        return new SessionResource($session);
+    }
 
-	}
-
-	public function delete(Request $request, $id)
+    public function delete(Request $request, $id)
     {
         $session = Session::findOrFail($id);
         $session->delete();
 
         return 204;
     }
+
 }

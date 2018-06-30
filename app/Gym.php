@@ -11,6 +11,12 @@ class Gym extends Model
     public function trainer(){
 
 		return $this->hasMany('App\Trainer');
+
+	}
+
+	public function session(){
+		return $this->hasMany('App\Session');
+
 	}
 
 }

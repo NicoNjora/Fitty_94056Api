@@ -14,12 +14,20 @@ class CreateTrainersTable extends Migration
     public function up()
     {
         Schema::create('trainers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('gym_id');
-            $table->text('name');
+
+            $table->increments('id')->unique();
+            $table->integer('gym_id')->unsigned();
+            $table->text('trainer_name');
+            $table->integer('contacts');
+            $table->string('email');
+            $table->string('photo');
+            $table->string('gender');
             $table->float('ratings');
             $table->timestamps();
+
+            $table->foreign('gym_id')->references('id')->on('gyms')->onDelete('cascade');
         });
+
     }
 
     /**

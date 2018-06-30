@@ -3,10 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Session;
 
-
-class SessionResource extends JsonResource
+class Workout extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +14,6 @@ class SessionResource extends JsonResource
      */
     public function toArray($request)
     {
-        
-        public function toArray($request){
-        
-            return parent::toArray($request);
-        }        
+        return parent::toArray($request);
     }
 }

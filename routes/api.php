@@ -23,7 +23,9 @@ use App\Http\Resources\SessionResource;
 //     return new SessionResource(Session->all);
 // });
 
-Route::resource('session', 'SessionController');
+// Route::resource('session', 'SessionController');
+
+
 
 // Route::post('session', function(Request $request) {
 //     return Session::create($request->all);
@@ -32,3 +34,31 @@ Route::resource('session', 'SessionController');
 // Route::get('/session', function () {
 //     return new SessionResource(Session::find(1));
 // });
+
+
+
+Route::group(['prefix' => 'gym'], function(){
+
+    Route::get('/', 'GymController@index');
+    Route::get('/{id}', 'GymController@getTrainer');
+
+});
+
+Route::group(['prefix' => 'workout'], function (){
+
+    Route::get('/', 'WorkoutController@index');
+
+});
+Route::group(['prefix' => 'trainer'], function(){
+
+    Route::get('/', 'TrainerController@index');
+    Route::get('/{id}', 'TrainerController@singleTrainer');
+
+});
+
+Route::group(['prefix' => 'session'], function (){
+
+    // Route::get('/{user_id}', 'SessionController@userSessions');
+    Route::post('/add', 'SessionController@createSession');
+
+});
