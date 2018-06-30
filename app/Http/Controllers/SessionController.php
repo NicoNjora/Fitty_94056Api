@@ -27,13 +27,17 @@ class SessionController extends Controller
 
 	public function index(Session $session){
 
-		// return $session->toArray();
+		// 
 
-		SessionResource::withoutWrapping();
+		$session=Session::all();
 
-		return new SessionResource($session);
+		// SessionResource::withoutWrapping();
+		return $session->toArray();
+		
+		// return new SessionResource($session);
 
 		// return Session::all($user_id);
+
 	}
 
 	public function delete(Request $request, $id)

@@ -20,7 +20,7 @@ use App\Http\Resources\SessionResource;
 // });
 
 // Route::get('/session', function () {
-//     return new SessionResource(Session::find(1));
+//     return new SessionResource(Session->all);
 // });
 
 Route::resource('session', 'SessionController');
