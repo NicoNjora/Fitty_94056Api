@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Gym;
 use App\Http\Resources\GymResource;
+use App\Http\Resources\GymResource\GymResourceCollection;
 
 class GymController extends Controller
 {
