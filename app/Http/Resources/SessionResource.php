@@ -15,11 +15,9 @@ class SessionResource extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {
-        
-        public function toArray($request){
+    {   
         
             return parent::toArray($request);
-        }        
+            
     }
 }
