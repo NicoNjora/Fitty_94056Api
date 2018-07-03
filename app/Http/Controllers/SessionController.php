@@ -5,10 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Session;
 use App\Http\Resources\SessionResource;
+use App\Http\Resources\SessionResourceCollection;
+
 
 class SessionController extends Controller
 {
     //
+
+    public function userSessions(){
+        return new SessionResourceCollection(SessionResource::collection(Session::all()));
+    }
 
     public function addSession(Request $request)
     {

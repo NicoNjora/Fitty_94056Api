@@ -58,7 +58,7 @@ Route::group(['prefix' => 'trainer'], function(){
 
 Route::group(['prefix' => 'session'], function (){
 
-    // Route::get('/{user_id}', 'SessionController@userSessions');
-    Route::post('/add', 'SessionController@createSession');
+    Route::get('/', 'SessionController@userSessions');
+    Route::post('/add', 'SessionController@addSession');
 
 });
