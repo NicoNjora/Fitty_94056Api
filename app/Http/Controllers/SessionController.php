@@ -13,6 +13,8 @@ class SessionController extends Controller
     //
 
     public function userSessions(){
+        
+        SessionResource::withoutWrapping();
         return new SessionResourceCollection(SessionResource::collection(Session::all()));
     }
 
