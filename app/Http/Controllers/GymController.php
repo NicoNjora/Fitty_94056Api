@@ -23,7 +23,7 @@ class GymController extends Controller
 
     public function index(){
         
-        GynResource::withoutWrapping();
+        GymResource::withoutWrapping();
         return new GymResourceCollection(GymResource::collection(Gym::all()));
     }
     
