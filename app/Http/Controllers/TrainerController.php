@@ -12,6 +12,7 @@ class TrainerController extends Controller
 {
 
     public function index(){
+        TrainerResource::withoutWrapping();
         return new TrainerResourceCollection(TrainerResource::collection(Trainer::all()));
     }
 
